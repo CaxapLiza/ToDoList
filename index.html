@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="normalize.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/normalize.min.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Check List</title>
 </head>
 <body>
     <div class="header">
          <h1 class="header__h1">Tasks</h1>
-         <button class="header__button"><img src="plus.png" alt="plus"></button>
+         <button class="header__button"><img src="imgs/plus.png" alt="plus"></button>
     </div>
-    <div class="add_block">
-        <span class="add_block__span">Name</span>
+    <div class="add_block hidden pos_rel">
+        <div class="add_block__span">Name</div>
+        
         <input class="add_block__input" type="text" id="name_of_task">
-        <span class="add_block__span">Color</span>
+        
+        <div class="add_block__span">Color</div>
         <div class="color_block">
             <button class="color_item green"></button>
             <button class="color_item pink"></button>
@@ -29,10 +31,15 @@
     </div>
     <div class="todo">
         <nav class="todo__nav">
-            <ul class="todo__item">
-                
+            <ul class="todo__list">
+                <!-- <li class="todo__item">
+                    <input type="checkbox" class="item__check" name="hhh">
+                    <div class="item__label">HHH</div>
+                </li>                 -->
             </ul>
         </nav>
     </div>
+
+    <script src="scripts/main.js"></script>
 </body>
 </html>
