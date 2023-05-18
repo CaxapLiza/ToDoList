@@ -6,41 +6,7 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.hidden {
-    display: none;
-}
-
-.open_animation {    
-    display: block;
-    transform: translateY(-150%);
-    animation: open_a 1s forwards;
-}
-
-@keyframes open_a {
-    0% {display: block;}
-    1% {transform: translateY(-150%);}
-    100% {transform: translateY(0);}
-}
-
-.close_animation {    
-    transform: translateY(0%);
-    animation: close_a 1s forwards;
-}
-
-@keyframes close_a {
-    0% {transform: translateY(0%);}
-    100% {transform: translateY(-150%);}    
-}
-
-.close_animation_todo {    
-    transform: translateY(150%);
-    /* animation: close_a_t 1s forwards; */
-}
-
-/* @keyframes close_a_t {
-    0% {transform: translateY(50%);}
-    100% {transform: translateY(0%);}   
-} */
+/* ----- HEADER ----- */
 
 .header {
     max-width: 288px;
@@ -62,29 +28,7 @@ body {
     width: 30px;
 }
 
-.rotare_plus { 
-    transform: rotate(0deg);
-    animation: rot_p 0.5s forwards;
-}
-
-@keyframes rot_p {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(45deg);}    
-}
-
-.rotare_close { 
-    transform: rotate(45deg);
-    animation: rot_c 0.5s forwards;
-}
-
-@keyframes rot_c {
-    0% {transform: rotate(45deg);}
-    100% {transform: rotate(0deg);}    
-}
-
-.pos_rel {
-    position: relative;
-}
+/* ----- ADD BLOCK ----- */
 
 .add_block {
     z-index: -1;    
@@ -139,7 +83,6 @@ body {
 .green {
     background-color: #CEEDC7;
 }
-
 .pink {
     background-color: #FF9494;
 }
@@ -156,9 +99,12 @@ body {
     background-color: #FFC8DD;
 }
 
+/* ----- TODO BLOCK ----- */
+
 .todo {
     max-width: 272px;
     margin: 0 auto;
+    transform: translateY(-150%);
 }
 
 .todo__nav {
@@ -186,10 +132,6 @@ body {
     cursor: pointer;
 }
 
-.item__check:checked {
-    background: black;    
-}
-
 .item__label {
     width: 80%;
     border-radius: 8px;
@@ -199,4 +141,56 @@ body {
     font-weight: bold;
     color: black;
     font-size: small;
+}
+
+/* animations */
+
+.rotare_plus { 
+    transform: rotate(0deg);
+    animation: rot_p 0.5s forwards;
+}
+
+@keyframes rot_p {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(45deg);}    
+}
+
+.rotare_close { 
+    transform: rotate(45deg);
+    animation: rot_c 0.5s forwards;
+}
+
+@keyframes rot_c {
+    0% {transform: rotate(45deg);}
+    100% {transform: rotate(0deg);}    
+}
+
+.open_animation {    
+    display: block;
+    transform: translateY(-150%);
+    animation: open_a 1s forwards;
+}
+
+@keyframes open_a {
+    0% {display: block;}
+    1% {transform: translateY(-150%);}
+    100% {transform: translateY(0);}
+}
+
+.close_animation {    
+    transform: translateY(0%);
+    animation: close_a 1s forwards;
+}
+
+@keyframes close_a {
+    0% {transform: translateY(0%);}
+    100% {transform: translateY(-150%);}    
+}
+
+.pos_rel {
+    position: relative;
+}
+
+.hidden {
+    visibility: hidden
 }
