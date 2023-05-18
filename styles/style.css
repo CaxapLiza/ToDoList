@@ -118,6 +118,10 @@ body {
     border: 0px;
 }
 
+.color_item:hover {
+    border: 2px solid black;
+}
+
 .add_block__button {
     width: 100%;
     height: 40px;
@@ -126,6 +130,10 @@ body {
     background: #9C89B8;
     color: #FFFFFF;
     font-weight: bold;
+}
+
+.add_block__button:hover {
+    border: 2px solid white;
 }
 
 .green {
@@ -157,6 +165,10 @@ body {
     width: 100%;
 }
 
+.todo__list {
+    padding-left: 0;
+}
+
 .todo__item {
     display: flex;
     width: 100%;
@@ -171,7 +183,11 @@ body {
     border: 2px solid;
     appearance: none;
     -webkit-appearance: none;    
-    cursor: pointer;  
+    cursor: pointer;
+}
+
+.item__check:checked {
+    background: black;    
 }
 
 .item__label {

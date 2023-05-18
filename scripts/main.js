@@ -33,17 +33,11 @@ openAddBlockButton.onclick = function () {
     }    
 }
 
-
 let color;
 
 const colorItems = document.querySelectorAll('.color_item');
 colorItems.forEach(element => {
-    element.addEventListener('mouseover', function () {
-        element.style.border = "2px solid black"; });
-    element.addEventListener('mouseout', function () {
-        if (color != element.classList[1])
-        element.style.border = "0"; });
-    element.addEventListener('click', function () {
+    element.addEventListener('click', () => {
         element.style.border = "2px solid black";
         color = element.classList[1];
         colorItems.forEach(element => {
@@ -53,15 +47,52 @@ colorItems.forEach(element => {
     
 });
 
-const addBut = document.querySelector('.add_block__button');
-addBut.onclick = addTask;
+//основная логика
 
-function addTask() {
-    const nav = document.querySelector('.todo__list');
+todo = []; //array with tasks
+const nav = document.querySelector('.todo__list');
+
+const newTask = () => {
     const text = document.querySelector('.add_block__input').value;
-    nav.insertAdjacentHTML('afterend', 
-    `<li class="todo__item">
-    <input type="checkbox" class="item__check" name="item">
-    <div class="item__label ${color}">${text}</div>
-    </li>`);
+    if (text != "" && color != undefined) {
+        const newTask = {
+            taskName: text,
+            checked: false,
+            color: color
+        };
+
+        todo.push(newTask);
+        localStorage.setItem('todo', JSON.stringify(todo));
+        getTasks();
+    }
+    else {
+        alert("Write a name & choose color");
+    }
 }
+
+const addBut = document.querySelector('.add_block__button');
+addBut.onclick = newTask;
+
+const getTasks = () => {
+    if (localStorage.getItem('todo')) {
+        todo = JSON.parse(localStorage.getItem('todo'));
+        let mes = '';
+        todo.forEach((task, i) => {        
+            mes += `
+            <li class="todo__item">
+                <input type="checkbox" class="item__check" id="item_${i}" ${task.checked ? 'checked' : ''}>
+                <div class="item__label ${task.color}">${task.taskName}</div>
+            </li>
+            `;
+            nav.innerHTML = mes;
+        });
+    }
+};
+
+document.querySelector('body').onload = getTasks;
+
+nav.onchange = () => {
+    const obj = event.target; 
+    const id = obj.getAttribute('id').at(5);
+    todo[id].checked = obj.checked;
+};
